@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "./button";
+import Link from 'next/link'
 
 export default function Navigation() {
     return (

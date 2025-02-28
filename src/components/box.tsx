@@ -16,7 +16,7 @@ export default function Box({ bgColor, fullWidth, icon, border, children, alignm
         <div>
             <div className={`${bgColor} ${fullWidth} ${icon} ${border} ${alignment} ${image} `}>
                 {children}
-                <img className="p4 w-full h-full object-cover rounded-3xl " src={image} />
+                <img className="p4 w-full h-full object-cover " src={image} />
             </div>
         </div>
     );
