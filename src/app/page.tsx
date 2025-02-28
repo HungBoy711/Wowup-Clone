@@ -1,14 +1,14 @@
 import Image from "next/image";
-import Header from "../components/header"
+import Header from "./header";
+import BodyP from "./body";
+import Footer from "./footer";
 
-
-export default function Home() {
+export default function Body() {
   return (
-    <div>
+    <div >
       <Header />
-      <div className=" w-full h-screen bg-[#3961fb]">
-      </div>
-
+      <BodyP />
+      < Footer />
     </div>
   );
 }
