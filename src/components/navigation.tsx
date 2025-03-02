@@ -1,10 +1,26 @@
 import Image from "next/image";
+"use client";
+import React, { useState, useEffect } from "react";
 import Button from "./button";
 import Link from 'next/link'
 
+
 export default function Navigation() {
+    const[color, setColor] = useState(false)
+    const changeColor = () =>{
+        if (window.scrollY >= 90) {
+            setColor(true)
+        } else {
+            setColor(false)
+        }
+       
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', changeColor)
+    })
+ 
     return (
-        <nav className="fixed bg-none border-gray-200 dark:bg-gray-900 top-0 left-0 w-full z-10">
+        <nav className={`fixed border-gray-200 top-0 left-0 w-full z-10 transition duration-300 ease-in-out  ${color ? "bg-slate-900" : "bg-none"}`}>
             <div className="max-w-screen-xl flex flex-wrap items-center justify-start gap-8 mx-auto p-4">
                 <a>
                     < img src="/logo.png" className="h-[60px] w-[250px]" alt="Wowup Logo" />
