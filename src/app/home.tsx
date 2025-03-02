@@ -1,8 +1,9 @@
 import Image from "next/image";
-import "./animation.css"
-import { BoxContent, Text, Box } from "../components";
+import "../styles/animation.css"
+import Body from "./page";
+import { BoxContent, Text, Box } from "../components/ui";
 
-export default function BodyP() {
+export default function HomePage() {
     return (
         <div>
             <div id="home" className="mb-5">

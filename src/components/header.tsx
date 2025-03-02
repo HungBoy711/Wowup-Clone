@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Navigation } from "../components";
+import { Navigation } from "./ui";
 
 export default function Header() {
     return (

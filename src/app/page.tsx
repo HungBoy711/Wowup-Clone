@@ -1,14 +1,11 @@
 import Image from "next/image";
-import Header from "./header";
-import BodyP from "./body";
-import Footer from "./footer";
+import HomePage from "./home";
+import { ReactNode } from "react";
 
 export default function Body() {
   return (
     <div >
-      <Header />
-      <BodyP />
-      < Footer />
+      <HomePage />
     </div>
   );
 }
