@@ -6,19 +6,23 @@ import Link from 'next/link'
 
 
 export default function Navigation() {
-    const[color, setColor] = useState(false)
-    const changeColor = () =>{
-        if (window.scrollY >= 90) {
-            setColor(true)
-        } else {
-            setColor(false)
-        }
-       
-    }
+    const [color, setColor] = useState(false)
     useEffect(() => {
-        window.addEventListener('scroll', changeColor)
-    })
- 
+        const changeColor = () => {
+            if (window.scrollY >= 90) {
+                setColor(true);
+            } else {
+                setColor(false);
+            }
+        };
+
+        changeColor();
+        window.addEventListener("scroll", changeColor);
+        return () => {
+            window.removeEventListener("scroll", changeColor);
+        };
+    }, []);
+
     return (
         <nav className={`fixed border-gray-200 top-0 left-0 w-full z-10 transition duration-300 ease-in-out  ${color ? "bg-slate-900" : "bg-none"}`}>
             <div className="max-w-screen-xl flex flex-wrap items-center justify-start gap-8 mx-auto p-4">
@@ -39,7 +43,7 @@ export default function Navigation() {
 
                     </ul>
                 </div>
-                <div className=" w-full hidden lg:block md:w-auto ml-auto">
+                <div className="w-full hidden xl:flex md:w-auto ml-auto">
                     <span className="mr-8 text-white">
                         VI
                     </span>

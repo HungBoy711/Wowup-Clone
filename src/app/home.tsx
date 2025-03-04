@@ -1,18 +1,16 @@
 import Image from "next/image";
 import "../styles/animation.css"
 import Body from "./page";
-import { BoxContent, Text, Box } from "../components/ui";
+import { Text, Box } from "../components/ui";
 
 export default function HomePage() {
     return (
         <div>
             <div id="home" className="mb-5">
-                <BoxContent
-                    bgColor="bg-gradient-to-r from-violet-900 to-teal-100 brightness-100 "
-                    fullWidth="content-center w-full h-[750px]"
-                    border="rounded-b-[90px]"
-                    alignment="justify-items-center text-center"
-                >   <div className="mt-32">
+                <section
+                    className="bg-gradient-to-r from-violet-900 to-teal-100 brightness-100 content-center w-full h-[750px] rounded-b-[90px] justify-items-center text-center"
+                >
+                    <div className="mt-32">
                         <Text
                             text={`Thiết kế\n& Lập trình`}
                             textColor="bg-gradient-to-r from-violet-300 to-teal-50 bg-clip-text text-transparent font-extrabold"
@@ -21,25 +19,16 @@ export default function HomePage() {
                         />
                     </div>
                     <div className="max-w-[1200px] w-full flex flex-wrap justify-between gap-4 -mt-14">
-                        <Box
-                            fullWidth="w-[590px] h-[280px]"
-                            border=" "
-                            alignment=" "
-                            children=""
-                            image="/img1.jpg"
-
-                        />
-                        <Box
-                            fullWidth="w-[590px] h-[280px]"
-                            border=""
-                            alignment=""
-                            children=""
-                            image="/img2.jpg"
-                        />
+                        <Box fullWidth="w-[590px] h-[280px]" image="/img1.jpg" />
+                        <Box fullWidth="w-[590px] h-[280px]" image="/img2.jpg" />
                     </div>
+                    <Box
+                        fullWidth="w-[200px] h-[200px]"
+                        alignment=" -top-[100px] left-10 box_animate"
+                        image="/computer.png"
+                    />
 
-                </BoxContent>
-
+                </section>
             </div>
             <div className="flex overflow-hidden p-4">
                 <p className="marquee__line font-sans font-extrabold text-4xl text-[#000f1d] ">

@@ -11,10 +11,12 @@ interface ButtonProps {
 
 export default function Button({ text, textColor, bgColor, fullWidth, border, icon }: ButtonProps) {
     return (
-        <button type="button"
-            className={`${border} ${textColor} ${bgColor} ${fullWidth} `}
-        >
-            <span>{text}</span>
-        </button>
+        <div >
+            <button type="button"
+                className={`${border} ${textColor} ${bgColor} ${fullWidth} `}
+            >
+                <span>{text}</span>
+            </button>
+        </div>
     );
 }

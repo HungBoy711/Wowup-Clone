@@ -16,3 +16,26 @@
     transform: translateX(-100%);
   }
 }
+
+.box_animate {
+  position: relative;
+  margin-top: -50px;
+  animation-name: boxanimate;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes boxanimate {
+  0% {
+    top: 0px;
+  }
+
+  50% {
+    top: -25px;
+  }
+
+  100% {
+    top: 0px;
+  }
+
+}
