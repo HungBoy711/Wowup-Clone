@@ -32,10 +32,10 @@ export default function Navigation() {
                 <div className="w-full hidden lg:block md:w-auto" id="navbar-default">
                     <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
-                            <a href="#" className="block py-2 px-3 text-white hover:text-blue-500">Dịch vụ</a>
+                            <a href="#services" className="block py-2 px-3 text-white hover:text-blue-500">Dịch vụ</a>
                         </li>
                         <li>
-                            <a href="#" className="block py-2 px-3 text-white hover:text-blue-500">Dự án</a>
+                            <a href="#projects" className="block py-2 px-3 text-white hover:text-blue-500">Dự án</a>
                         </li>
                         <li>
                             <a href="#" className="block py-2 px-3 text-white hover:text-blue-500">Bài viết</a>

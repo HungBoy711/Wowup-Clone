@@ -6,8 +6,8 @@ import { Text, Box } from "../components/ui";
 export default function HomePage() {
     return (
         <div>
-            <div id="home" className="mb-5">
-                <section
+            <section id="home" className="mb-5">
+                <div
                     className="bg-gradient-to-r from-violet-900 to-teal-100 brightness-100 content-center w-full h-[750px] rounded-b-[90px] justify-items-center text-center"
                 >
                     <div className="mt-32">
@@ -28,8 +28,8 @@ export default function HomePage() {
                         image="/computer.png"
                     />
 
-                </section>
-            </div>
+                </div>
+            </section>
             <div className="flex overflow-hidden p-4">
                 <p className="marquee__line font-sans font-extrabold text-4xl text-[#000f1d] ">
                     Landing Page - CMR System - IT Staffing - UI UX Design - Development Consulting - Landing Page - CMR System - IT Staffing - UI UX Design - Landing Page - CMR System - IT Staffing - UI UX Design -
@@ -136,7 +136,7 @@ export default function HomePage() {
                 </div>
             </section>
 
-            <section className="max-w-full h-[2000px] mt-10 justify-items-center">
+            <section id="projects" className="max-w-full h-[2000px] mt-10 justify-items-center">
                 <div className="w-[1200px] h-full">
                     <Text
                         text={`DỰ ÁN CỦA CHÚNG TÔI`}
