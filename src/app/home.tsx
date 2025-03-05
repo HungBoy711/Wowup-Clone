@@ -1,31 +1,41 @@
-import Image from "next/image";
 import "../styles/animation.css"
 import Body from "./page";
-import { Text, Box } from "../components/ui";
+import { Img, Text } from "../components/ui";
 
 export default function HomePage() {
     return (
         <div>
-            <section id="home" className="mb-5">
+            <section id="home" className="mb-5 ">
                 <div
-                    className="bg-gradient-to-r from-violet-900 to-teal-100 brightness-100 content-center w-full h-[750px] rounded-b-[90px] justify-items-center text-center"
+                    className="bg-[url(/bgBanner.png)] content-center w-full h-[780px] rounded-b-[90px] justify-items-center text-center"
                 >
                     <div className="mt-32">
-                        <Text
-                            text={`Thiết kế\n& Lập trình`}
-                            textColor="bg-gradient-to-r from-violet-300 to-teal-50 bg-clip-text text-transparent font-extrabold"
-                            font="font-sans"
-                            fullWidth="whitespace-pre-wrap text-[150px] uppercase leading-[1.1]"
+                        <p className="z-0 font-sans text-neutral-10 mix-blend-overlay font-extrabold text-[150px] uppercase leading-[1.1] text-white">
+                            Thiết kế<br />& Lập trình
+                        </p>
+
+                    </div>
+                    <div className="max-w-[1250px] w-full flex flex-wrap justify-between -mt-[50px] z-20">
+                        <Img
+                            src="/img1.jpg"
+                            className="z-10 w-[610px] h-[330px] rounded-3xl"
+                        />
+                        <Img
+                            src="/img2.jpg"
+                            className="z-10 w-[610px] h-[330px] rounded-3xl"
                         />
                     </div>
-                    <div className="max-w-[1200px] w-full flex flex-wrap justify-between gap-4 -mt-14">
-                        <Box fullWidth="w-[590px] h-[280px]" image="/img1.jpg" />
-                        <Box fullWidth="w-[590px] h-[280px]" image="/img2.jpg" />
-                    </div>
-                    <Box
-                        fullWidth="w-[200px] h-[200px]"
-                        alignment=" -top-[100px] left-10 box_animate"
-                        image="/computer.png"
+                    <Img
+                        className="w-[150px] h-[150px -top-[100px]  box_animate z-40 mt-[680px] left-1/2"
+                        src="https://wowup.vn/_ipx/s_310x282/pattern/cube.svg"
+                    />
+                    <Img
+                        className="w-[150px] h-[150px] -top-[100px]  box_animate z-40 mt-[350px] left-[50px]"
+                        src="https://wowup.vn/_ipx/s_292x332/pattern/torus.svg"
+                    />
+                    <Img
+                        className="w-[150px] h-[150px] -top-[100px]  box_animate z-40 mt-[280px] right-[100px]"
+                        src="https://wowup.vn/_ipx/s_224x318/pattern/cone.svg"
                     />
 
                 </div>
@@ -137,7 +147,7 @@ export default function HomePage() {
             </section>
 
             <section id="projects" className="max-w-full h-[2000px] mt-10 justify-items-center">
-                <div className="w-[1200px] h-full">
+                {/* <div className="w-[1200px] h-full">
                     <Text
                         text={`DỰ ÁN CỦA CHÚNG TÔI`}
                         textColor=" font-extrabold"
@@ -227,7 +237,7 @@ export default function HomePage() {
                             />
                         </Box>
                     </div>
-                </div>
+                </div> */}
             </section>
         </div>
     );

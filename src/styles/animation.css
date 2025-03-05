@@ -18,8 +18,7 @@
 }
 
 .box_animate {
-  position: relative;
-  margin-top: -50px;
+  position: absolute;
   animation-name: boxanimate;
   animation-duration: 3s;
   animation-iteration-count: infinite;

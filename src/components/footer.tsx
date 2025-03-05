@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Text, Button, Input } from "./ui";
 
 export default function Footer() {
