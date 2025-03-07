@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Link from 'next/link'
 
 
 export default function Navigation() {
@@ -39,7 +38,7 @@ export default function Navigation() {
                 <a>
                     < img src="https://wowup.vn/_ipx/s_410x66/logo_contrast.svg" className="h-[33px] w-[205px]" alt="Wowup Logo" />
                 </a>
-                <div className="w-full hidden lg:block md:w-auto" id="navbar-default">
+                <div className="w-full hidden xl:block md:w-auto" id="navbar-default">
                     <ul className="font-sans flex pl-10 space-x-10 ">
                         {navigation.map((item, idx) =>
                             <li key={idx}>
@@ -51,10 +50,11 @@ export default function Navigation() {
                     <span className="pr-8 py-2 text-white">
                         VI
                     </span>
-                    <button className="w-40 h-10 mr-4 text-white border border-white rounded-3xl">
+                    <button className="w-44 h-10 mr-4 text-base text-white border border-solid border-white rounded-3xl">
                         Hồ sơ công ty
                     </button>
-                    <button className="w-40 h-10 bg-white text-black border rounded-3xl">
+
+                    <button className="w-44 h-10 text-base bg-white text-black border rounded-3xl">
                         Liên hệ
                     </button>
 

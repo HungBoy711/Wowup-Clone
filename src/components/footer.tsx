@@ -1,4 +1,4 @@
-import { Text, Button, Input } from "./ui";
+import { Button, Input } from "./ui";
 
 export default function Footer() {
     return (
@@ -44,34 +44,24 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="w-[700px] h-[300px] bg-gray-950 rounded-3xl -mt-10">
-                    <Text
-                        text={`Chúng tôi ở đây`}
-                        font="font-sans font-extrabold"
-                        fullWidth="text-5xl mt-3 pt-8 pl-8 pb-0 "
-                        textColor="text-white"
-                    />
-                    <Text
-                        text={`Cánh cửa của chúng tôi luôn mở cho một tách cà phê ngon`}
-                        font="font-sans font-normail"
-                        fullWidth="text-1xl  p-8"
-                        textColor="text-[#727272]"
-                    />
+                    <div className="font-sans font-extrabold text-white text-5xl mt-3 pt-8 pl-8 pb-0">
+                        Chúng tôi ở đây
+                    </div>
+
+                    <div className="font-sans font-normal text-[#727272] text-xl p-8">
+                        Cánh cửa của chúng tôi luôn mở cho một tách cà phê ngon
+                    </div>
+
                     <div className="flex w-[500px] ">
                         <Input
                             placeholder="Số điện thoại"
-                            textColor="text-gray-200"
-                            bgColor="bg-transparent"
-                            fullWidth="w-[180px] h-[50px] ml-8 pl-5"
-                            border="border border-gray-500 rounded-full"
                             type="text"
+                            className="text-gray-200 bg-transparent w-[180px] h-[50px] ml-8 pl-5 border border-gray-500 rounded-full"
                         />
                         <Input
                             placeholder="exp@gmail.com"
-                            textColor="text-gray-200"
-                            bgColor="bg-transparent"
-                            fullWidth="w-[180px] h-[50px] ml-2 pl-5"
-                            border="border border-gray-500 rounded-full"
                             type="text"
+                            className="text-gray-200 bg-transparent w-[180px] h-[50px] ml-8 pl-5 border border-gray-500 rounded-full"
                         />
                         < Button
                             text=">"
