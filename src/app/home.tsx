@@ -7,6 +7,32 @@ import { title } from "process";
 
 export default function HomePage() {
     const [open, setOpen] = useState(0)
+    const [currentIdx, setCurrentIdx] = useState(0)
+
+    const imgBanner = [
+        './img1.jpg',
+        './img2.jpg',
+        './img3.png',
+        './img4.jpg'
+    ]
+
+    const handlePrevios = () => {
+        if (currentIdx >= 1) {
+            setCurrentIdx(currentIdx - 1)
+        }
+        else {
+            setCurrentIdx(currentIdx + 2)
+        }
+    }
+
+    const handleNext = () => {
+        if (currentIdx >= 2) {
+            setCurrentIdx(currentIdx - 2)
+        }
+        else {
+            setCurrentIdx(currentIdx + 1)
+        }
+    }
 
     const serviceContent = [{
         id: 0,
@@ -45,9 +71,7 @@ export default function HomePage() {
         });
     };
 
-    useEffect(() => {
-        console.log("open updated:", open);
-    }, [open]);
+
     return (
         <div>
             <section id="home" className="mb-5 ">
@@ -60,15 +84,15 @@ export default function HomePage() {
                         </p>
 
                     </div>
-                    <div className="max-w-[1250px] w-full flex flex-wrap justify-between -mt-[50px] z-20">
-                        <Img
-                            src="/img1.jpg"
-                            className="z-10 w-[610px] h-[330px] rounded-3xl object-cover"
-                        />
-                        <Img
-                            src="/img2.jpg"
-                            className="z-10 w-[610px] h-[330px] rounded-3xl object-cover"
-                        />
+                    <div className="max-w-[1250px] w-full flex flex-wrap justify-between -mt-[50px] ">
+                        <div className="z-20">
+                            <img className="z-10 w-[610px] h-[330px] rounded-3xl object-cover" src={imgBanner[currentIdx]} />
+                            <button onClick={handlePrevios}> truoc </button>
+                        </div>
+                        <div className="z-20">
+                            <img className="z-10 w-[610px] h-[330px] rounded-3xl object-cover" src={imgBanner[currentIdx + 1]} />
+                            <button onClick={handleNext}> sau</button>
+                        </div>
                     </div>
                     <Img
                         className="w-[150px] h-[150px -top-[100px]  box_animate z-40 mt-[680px] left-1/2"
@@ -149,8 +173,8 @@ export default function HomePage() {
                             </div>
                             {serviceContent.map((item) => (
                                 <div key={item.id}>
-                                    {open === item.id ? < img src={item.img} className="h-[450px] rounded-[50px] object-cover mt-5" />
-                                        : "nah bro"}
+                                    {open === item.id && < img src={item.img} className="h-[450px] rounded-[50px] object-cover mt-5" />
+                                    }
                                 </div>
                             ))}
 
