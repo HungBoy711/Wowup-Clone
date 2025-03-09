@@ -17,22 +17,24 @@ export default function HomePage() {
     ]
 
     const handlePrevios = () => {
-        if (currentIdx >= 1) {
-            setCurrentIdx(currentIdx - 1)
-        }
-        else {
-            setCurrentIdx(currentIdx + 2)
-        }
+        currentIdx >= 1 ? setCurrentIdx(currentIdx - 1) : setCurrentIdx(currentIdx + 2)
     }
 
     const handleNext = () => {
-        if (currentIdx >= 2) {
-            setCurrentIdx(currentIdx - 2)
-        }
-        else {
-            setCurrentIdx(currentIdx + 1)
-        }
+        currentIdx >= 2 ? setCurrentIdx(currentIdx - 2) : setCurrentIdx(currentIdx + 1)
+
     }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleNext();
+        }, 3000);
+
+        return () => {
+            clearInterval(interval)
+        };
+    }, [currentIdx]);
+
 
     const serviceContent = [{
         id: 0,
@@ -85,13 +87,17 @@ export default function HomePage() {
 
                     </div>
                     <div className="max-w-[1250px] w-full flex flex-wrap justify-between -mt-[50px] ">
-                        <div className="z-20">
+                        <div className="relative z-20">
                             <img className="z-10 w-[610px] h-[330px] rounded-3xl object-cover" src={imgBanner[currentIdx]} />
-                            <button onClick={handlePrevios}> truoc </button>
+                            <button className="w-20 h-20 absolute top-60 left-2 text-white border border-solid rounded-full bg-black" onClick={handlePrevios}>
+                                &lt;
+                            </button>
                         </div>
-                        <div className="z-20">
+                        <div className="relative z-20">
                             <img className="z-10 w-[610px] h-[330px] rounded-3xl object-cover" src={imgBanner[currentIdx + 1]} />
-                            <button onClick={handleNext}> sau</button>
+                            <button className="w-20 h-20 absolute top-60 right-2 text-white border border-solid rounded-full bg-black" onClick={handleNext}>
+                                &gt;
+                            </button>
                         </div>
                     </div>
                     <Img

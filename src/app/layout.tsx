@@ -6,7 +6,7 @@ import { geistMono, geistSans } from "../utils/fonts";
 
 export const metadata: Metadata = {
   title: "WowUp JSC - Phát triển công nghệ, kiến tạo thành công",
-  icons: "/logoFT1.png"
+  icons: { icon: "/logoFT1.png" }
 };
 
 export default function RootLayout({
