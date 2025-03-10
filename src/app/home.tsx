@@ -1,9 +1,10 @@
 "use client"
 import "../styles/animation.css"
-import Body from "./page";
 import { Img } from "../components/ui";
 import React, { useState, useEffect } from "react";
-import { title } from "process";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import { BsPlusLg } from "react-icons/bs";
+import { HiOutlineMinus } from "react-icons/hi2";
 
 export default function HomePage() {
     const [open, setOpen] = useState(0)
@@ -71,6 +72,7 @@ export default function HomePage() {
         setOpen(id);
     };
 
+
     return (
         <div>
             <section id="home" className="mb-5 ">
@@ -86,14 +88,18 @@ export default function HomePage() {
                     <div className="max-w-[1250px] w-full flex flex-wrap justify-between -mt-[50px] ">
                         <div className="relative z-20">
                             <img className="z-10 w-[610px] h-[330px] rounded-3xl object-cover" src={imgBanner[currentIdx]} />
-                            <button className="w-20 h-20 absolute top-60 left-2 text-white border border-solid rounded-full bg-black" onClick={handlePrevios}>
-                                &lt;
+                            <button
+                                className="w-20 h-20 absolute top-60 left-2 text-white border border-solid rounded-full bg-black flex items-center justify-center"
+                                onClick={handlePrevios}>
+                                <MdKeyboardArrowLeft size={36} />
                             </button>
+
                         </div>
                         <div className="relative z-20">
                             <img className="z-10 w-[610px] h-[330px] rounded-3xl object-cover" src={imgBanner[(currentIdx + 1) % imgBanner.length]} />
-                            <button className="w-20 h-20 absolute top-60 right-2 text-white border border-solid rounded-full bg-black" onClick={handleNext}>
-                                &gt;
+                            <button className="w-20 h-20 absolute top-60 right-2 text-white border border-solid rounded-full bg-black flex items-center justify-center"
+                                onClick={handleNext}>
+                                <MdKeyboardArrowRight size={36} />
                             </button>
                         </div>
                     </div>
@@ -187,21 +193,22 @@ export default function HomePage() {
                                 <div
                                     key={item.id}
                                     onClick={() => handleOpen(item.id)}
-                                    className={`cursor-pointer rounded-[30px] bg-[#161E29] flex flex-col mb-2  
-                                    ${open === item.id ? 'max-h-max py-12 px-14 transition-all duration-700 ease-in-out ' : 'max-h-[80px] py-5 px-14'}`}
-                                >
-
-                                    <div className="flex justify-between gap-2">
-                                        <p className="font-sans font-bold text-2xl text-white">
+                                    className={`cursor-pointer rounded-[30px] bg-[#161E29]  mb-2 py-5 px-12`} >
+                                    <div className="flex justify-between transform translate-y-1/2">
+                                        <p className="font-sans font-bold text-2xl text-white ">
                                             {item.title}
                                         </p>
-                                        <button className="text-white text-5xl font-thin">{open === item.id ? "-" : "+"}</button>
+                                        <button className="text-white text-5xl font-thin ml-4">
+                                            {open === item.id ? <HiOutlineMinus size={40} /> : <BsPlusLg size={40} />}
+                                        </button>
+
                                     </div>
-                                    {open === item.id && (
+                                    <div className={`overflow-hidden transition-all duration-500  ${open === item.id ? "h-[180px] pt-5" : "h-0 "}`}>
                                         <p className="font-sans font-normal text-[#C6C6C6] mt-2">
                                             {item.content}
                                         </p>
-                                    )}
+                                    </div>
+
                                 </div>
                             ))}
 
@@ -211,98 +218,93 @@ export default function HomePage() {
             </section>
 
             <section id="projects" className="max-w-full h-[2000px] mt-10 justify-items-center">
-                <div className="w-[1200px] h-full">
-
+                <div className="w-[1250px] ">
                     <p className="font-sans font-extrabold whitespace-pre-wrap text-7xl uppercase leading-[1.1]">
                         DỰ ÁN CỦA CHÚNG TÔI
                     </p>
+                    <div>
+                        <div className="flex justify-between gap-4 ">
+                            <div>
+                                <div className="overflow-hidden w-full h-[350px] mt-2 rounded-[30px] cursor-pointer">
+                                    <img
+                                        src="https://wowup.vn/_ipx/_/project/7esl.webp"
+                                        alt="7ESL"
+                                        className="object-cover duration-150 ease-in-out hover:scale-110"
+                                    />
+                                </div>
+                                <div className="font-sans text-2xl mt-3">7ESL</div>
+                            </div>
+                            <div>
+                                <div className="overflow-hidden w-full h-[350px] mt-2 rounded-[30px] cursor-pointer">
+                                    <img
+                                        src="http://wowup.vn/_ipx/_/project/lunchwme.webp"
+                                        alt="LunchWMe"
+                                        className="object-cover duration-150 ease-in-out hover:scale-110"
+                                    />
+                                </div>
+                                <p className="font-sans text-2xl mt-3">LUNCHWME</p>
+                            </div>
+                        </div>
+
+                        <div className="flex justify-between mt-2">
+                            <div>
+                                <div className="overflow-hidden w-[820px] h-[820px] mt-2 rounded-[30px] cursor-pointer">
+                                    <img
+                                        src="https://wowup.vn/_ipx/_/project/aiwow.webp"
+                                        alt="AI Wow"
+                                        className="object-cover duration-150 ease-in-out hover:scale-110"
+                                    />
+                                </div>
+                                <p className="font-sans text-2xl mt-3">AIWOW</p>
+                            </div>
+                            <div>
+                                <div className="overflow-hidden w-[410px] h-[820px] mt-2 rounded-[30px] cursor-pointer">
+                                    <img
+                                        src="https://wowup.vn/_ipx/_/project/itourism.webp"
+                                        alt="iTourism"
+                                        className="object-cover duration-150 ease-in-out hover:scale-110"
+                                    />
+                                </div>
+                                <p className="font-sans text-2xl mt-3">ITOURISM</p>
+                            </div>
+                        </div>
+
+                        <div className="flex justify-between gap-4 mt-2">
+                            <div>
+                                <div className="overflow-hidden w-full h-[400px] mt-2 rounded-[30px] cursor-pointer">
+                                    <img
+                                        src="https://wowup.vn/_ipx/_/project/gostream.webp"
+                                        alt="GoStream"
+                                        className="w-full h-full object-cover duration-150 ease-in-out hover:scale-110"
+                                    />
+                                </div>
+                                <p className="font-sans text-2xl mt-3">GOSTREAM</p>
+                            </div>
+                            <div>
+                                <div className="overflow-hidden w-full h-[400px] mt-2 rounded-[30px] cursor-pointer">
+                                    <img
+                                        src="https://wowup.vn/_ipx/_/project/xsale.webp"
+                                        alt="xSale"
+                                        className="w-full h-full object-cover duration-150 ease-in-out hover:scale-110"
+                                    />
+                                </div>
+                                <p className="font-sans text-2xl mt-3">XSALE</p>
+                            </div>
+                            <div>
+                                <div className="overflow-hidden w-full h-[400px] mt-2 rounded-[30px] cursor-pointer">
+                                    <img
+                                        src="https://wowup.vn/_ipx/_/project/taumi.webp"
+                                        alt="Taumi"
+                                        className="w-full h-full object-cover duration-150 ease-in-out hover:scale-110"
+                                    />
+                                </div>
+                                <p className="font-sans text-2xl mt-3">TAUMI</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
-                {/* 
-                    <div className="flex justify-between">
-                        <Box
-                            fullWidth="w-[590px] h-[350px]"
-                            alignment="mt-2"
-                            image="/7esl.jpg">
-                            <Text
-                                text={`7ESL`}
-                                font="font-sans"
-                                fullWidth="text-2xl mt-3"
 
-                            />
-                        </Box>
-                        <Box
-                            fullWidth="w-[590px] h-[350px]"
-                            alignment="mt-2"
-                            image="/lunchwme.jpg">
-                            <Text
-                                text={`LUNCHWME`}
-                                font="font-sans"
-                                fullWidth="text-2xl mt-3"
-
-                            />
-                        </Box>
-                    </div>
-                    <div className="flex justify-between gap-2 mt-16">
-                        <Box
-                            fullWidth="w-[790px] h-[700px]"
-                            alignment="mt-2"
-                            image="/aiwow.webp">
-                            <Text
-                                text={`AIWOW`}
-                                font="font-sans"
-                                fullWidth="text-2xl mt-3"
-
-                            />
-                        </Box>
-                        <Box
-                            fullWidth="w-[390px] h-[700px]"
-                            alignment="mt-2"
-                            image="/itourism.webp">
-                            <Text
-                                text={`ITOURISM`}
-                                font="font-sans"
-                                fullWidth="text-2xl mt-3"
-
-                            />
-                        </Box>
-                    </div>
-                    <div className="flex justify-between gap-2 mt-16">
-                        <Box
-                            fullWidth="w-[400px] h-[400px]"
-                            alignment="mt-2"
-                            image="/gosteam.png">
-                            <Text
-                                text={`GOSTREAM`}
-                                font="font-sans"
-                                fullWidth="text-2xl mt-3"
-
-                            />
-                        </Box>
-                        <Box
-                            fullWidth="w-[400px] h-[400px]"
-                            alignment="mt-2"
-                            image="/xsale.png">
-                            <Text
-                                text={`ITOURISM`}
-                                font="font-sans"
-                                fullWidth="text-2xl mt-3"
-
-                            />
-                        </Box>
-                        <Box
-                            fullWidth="w-[400px] h-[400px]"
-                            alignment="mt-2"
-                            image="/taumi.webp">
-                            <Text
-                                text={`TAUMI`}
-                                font="font-sans"
-                                fullWidth="text-2xl mt-3"
-
-                            />
-                        </Box>
-                    </div>
-                </div> */}
             </section>
         </div>
     );

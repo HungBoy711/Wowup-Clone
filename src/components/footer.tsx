@@ -1,6 +1,10 @@
+"use client"
 import { Button, Input } from "./ui";
+import React, { useState } from "react";
 
 export default function Footer() {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <div className="max-w-full h-[450px] bg-slate-900 justify-items-center">
             <div className="w-[1200px] h-[400px] flex justify-center items-center gap-10">
@@ -70,7 +74,7 @@ export default function Footer() {
                             fullWidth="w-12 h-12 ml-2"
                             border="border border-blue-500 rounded-full"
                         />
-                        <img className="absolute w-80  transform translate-x-[500px] -translate-y-24" src="/coffee.png" />
+                        <img className="absolute w-72  transform translate-x-[500px] -translate-y-24" src="https://wowup.vn/_ipx/fit_inside&s_550x550/background/coffee.webp" />
                     </div>
                 </div>
 
@@ -79,7 +83,25 @@ export default function Footer() {
             <p className="text-[#727272] mt-2">
                 c 2024 Được thiết kế và phát triển bởi WowUp
             </p>
+            <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+                {/* Tiêu đề có thể nhấn */}
+                <div
+                    className="w-80 p-4 bg-white rounded-lg shadow-md cursor-pointer select-none"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    <h2 className="text-lg font-semibold flex justify-between items-center">
+                        Tiêu đề
+                    </h2>
 
+                    {/* Nội dung mở ra bên trong tiêu đề */}
+                    <div
+                        className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                            }`}
+                    >
+                        <p className="mt-2 text-gray-600">Đây là nội dung mở rộng bên trong tiêu đề.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
