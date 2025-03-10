@@ -10,20 +10,21 @@ export default function HomePage() {
     const [currentIdx, setCurrentIdx] = useState(0)
 
     const imgBanner = [
-        './img1.jpg',
-        './img2.jpg',
-        './img3.png',
-        './img4.jpg'
+        'https://wowup.vn/pattern/mock_carousel.webp',
+        'https://wowup.vn/hero/anh2.webp',
+        'https://wowup.vn/hero/anh3.webp',
+        'https://wowup.vn/hero/anh4.webp'
     ]
 
     const handlePrevios = () => {
-        currentIdx >= 1 ? setCurrentIdx(currentIdx - 1) : setCurrentIdx(currentIdx + 2)
-    }
+        setCurrentIdx((prevIdx) => (prevIdx === 0 ? imgBanner.length - 1 : prevIdx - 1));
+
+    };
 
     const handleNext = () => {
-        currentIdx >= 2 ? setCurrentIdx(currentIdx - 2) : setCurrentIdx(currentIdx + 1)
+        setCurrentIdx((prevIdx) => (prevIdx === imgBanner.length - 1 ? 0 : prevIdx + 1));
+    };
 
-    }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -34,7 +35,6 @@ export default function HomePage() {
             clearInterval(interval)
         };
     }, [currentIdx]);
-
 
     const serviceContent = [{
         id: 0,
@@ -68,11 +68,8 @@ export default function HomePage() {
     }]
 
     const handleOpen = (id: any) => {
-        setOpen((prevId) => {
-            return prevId === id ? null : id;
-        });
+        setOpen(id);
     };
-
 
     return (
         <div>
@@ -94,7 +91,7 @@ export default function HomePage() {
                             </button>
                         </div>
                         <div className="relative z-20">
-                            <img className="z-10 w-[610px] h-[330px] rounded-3xl object-cover" src={imgBanner[currentIdx + 1]} />
+                            <img className="z-10 w-[610px] h-[330px] rounded-3xl object-cover" src={imgBanner[(currentIdx + 1) % imgBanner.length]} />
                             <button className="w-20 h-20 absolute top-60 right-2 text-white border border-solid rounded-full bg-black" onClick={handleNext}>
                                 &gt;
                             </button>

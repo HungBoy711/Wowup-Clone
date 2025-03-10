@@ -3,6 +3,8 @@ import "../styles/globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { geistMono, geistSans } from "../utils/fonts";
+import "../utils/icons";
+
 
 export const metadata: Metadata = {
   title: "WowUp JSC - Phát triển công nghệ, kiến tạo thành công",
